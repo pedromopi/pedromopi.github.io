@@ -1,0 +1,103 @@
+form fieldset {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: nowrap;
+   margin: 10px auto 6px auto;
+   width: 80%;
+   border: solid black 1px;
+   padding: 3%;
+}
+
+form legend {
+   padding: 6px;
+   margin: -14px;
+   border: solid black 2px;
+   font-size: 100%;
+   font-weight: bold;
+   background-color: #B2D7FA;
+
+
+}
+
+form label {
+   font-size: 20px;
+   margin-top: 5px;
+   margin-left: 10px;
+   margin-right: 10px;
+}
+
+form select {
+   right:10px;
+   width: 40%;
+   border: block #ccc 1px;
+   font-size: 11px;
+   margin-bottom: 10px;
+}
+
+form input {
+   right:50px;
+   width: 50%;
+   border: block #ccc 1px;
+   font-size: 11px;
+   margin-bottom: 10px;
+}
+
+form input.botao {
+   display:flex;
+   font-size: 23px;
+   flex-wrap: wrap;
+   width: 90%;
+   float: bottom;
+}
+
+form fieldset.oi {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   justify-content: space-around;
+
+}
+
+form fieldset.main {
+   display: flex;
+   flex-direction: row;
+   border: solid black 0px;
+   padding: 1%;
+   width: 73%;
+
+}
+
+form fieldset.uso {
+   display: block;
+   font-weight: light;
+   border: solid black 1px;
+   padding: 1%;
+   width: 80%;
+
+}
+
+form legend.uso {
+   padding: 6px;
+   margin: 0px;
+   border: solid black 2px;
+   font-size: 100%;
+   font-weight: bold;
+   background-color: #B2D7FA;
+
+
+}
+
+form fieldset.calc {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   justify-content: space-around;
+   font-weight: light;
+   border: solid black 0px;
+   padding: 1%;
+   width: 15%;
+
+}
+
+
+

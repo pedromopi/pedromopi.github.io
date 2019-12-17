@@ -1,0 +1,201 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+   <title> CR </title>
+
+  <link rel="stylesheet" href="style.css" />
+
+  <script src="script.js"></script>
+
+</head>
+
+<body>
+
+<style>
+body {
+  background-image: url();
+}
+</style>
+
+<form name="calcform" method="post" action="">
+
+
+
+   <fieldset class="main">
+   <fieldset class="oi">
+      <legend> Mat&#233ria 1 </legend>
+
+      <label for="C1">Creditos:</label>
+      <select name="C1" class="C1" id="C1">
+         <option value="0">Vazio</option>
+         <option value="1">1 Credito</option>
+         <option value="2">2 Creditos</option>
+         <option value="3">3 Creditos</option>
+         <option value="4">4 Creditos</option>
+         <option value="5">5 Creditos</option>
+      </select>
+
+      <label for="N1">Nota:</label>
+      <input type="text" class="nota" placeholder="Digite a nota nesta materia" name="N1" id="N1" />
+
+   </fieldset>
+
+
+   <fieldset class="oi">
+      <legend> Mat&#233ria 2 </legend>
+
+      <label for="C2">Creditos:</label>
+      <select name="C2" class="C2" id="C2">
+         <option value="0">Vazio</option>
+         <option value="1">1 Cr&#233dito</option>
+         <option value="2">2 Cr&#233ditos</option>
+         <option value="3">3 Creditos</option>
+         <option value="4">4 Creditos</option>
+         <option value="5">5 Creditos</option>
+      </select>
+
+      <label for="N2">Nota:</label>
+      <input type="text" class="nota" placeholder="Digite a nota nesta materia" name="N2" id="N2" />
+
+   </fieldset>
+
+   <fieldset class="oi">
+      <legend> Mat&#233ria 3 </legend>
+
+      <label for="C3">Creditos:</label>
+      <select name="C3" class="C3" id="C3">
+         <option value="0">Vazio</option>
+         <option value="1">1 Credito</option>
+         <option value="2">2 Creditos</option>
+         <option value="3">3 Creditos</option>
+         <option value="4">4 Creditos</option>
+         <option value="5">5 Creditos</option>
+      </select>
+
+      <label for="N3">Nota:</label>
+      <input type="text" class="nota" placeholder="Digite a nota nesta materia" name="N3" id="N3" />
+
+   </fieldset>
+   </fieldset>
+   <fieldset class="main">
+
+
+
+   <fieldset class="oi">
+      <legend> Mat&#233ria 4 </legend>
+
+      <label for="C4">Creditos:</label>
+      <select name="C4" class="C4" id="C4">
+         <option value="0">Vazio</option>
+         <option value="1">1 Credito</option>
+         <option value="2">2 Creditos</option>
+         <option value="3">3 Creditos</option>
+         <option value="4">4 Creditos</option>
+         <option value="5">5 Creditos</option>
+      </select>
+
+      <label for="N4">Nota:</label>
+      <input type="text" name="N4" placeholder="Digite a nota nesta materia" id="N4" />
+
+
+   </fieldset>
+
+
+
+   <fieldset class="oi">
+      <legend> Mat&#233ria 5 </legend>
+
+      <label for="C5">Creditos:</label>
+      <select name="C5" class="C5" id="C5">
+         <option value="0">Vazio</option>
+         <option value="1">1 Credito</option>
+         <option value="2">2 Creditos</option>
+         <option value="3">3 Creditos</option>
+         <option value="4">4 Creditos</option>
+         <option value="5">5 Creditos</option>
+      </select>
+
+      <label for="N5">Nota:</label>
+      <input type="text" name="N5" placeholder="Digite a nota nesta materia" id="N5" />
+
+
+   </fieldset>
+
+   <fieldset class="oi">
+      <legend> Mat&#233ria 6 </legend>
+
+      <label for="C6">Creditos:</label>
+      <select name="C6" class="C6" id="C6">
+         <option value="0">Vazio</option>
+         <option value="1">1 Credito</option>
+         <option value="2">2 Creditos</option>
+         <option value="3">3 Creditos</option>
+         <option value="4">4 Creditos</option>
+         <option value="5">5 Creditos</option>
+      </select>
+
+      <label for="N6">Nota:</label>
+      <input type="text" name="N6" id="N6" />
+
+   </fieldset>
+
+   </fieldset>
+   <fieldset class="main"> 
+
+   <fieldset class="oi">
+      <legend> Dados do Siga </legend>
+
+      <label for="CrR">Digite o CrR:</label>
+      <input type="text" class="in" name="CRO" id="CRO" />
+
+      <label for="Pontos">Digite Pontos:</label>
+      <input type="text" class="in" name="Pontos" id="Pontos" />
+
+   </fieldset>
+
+   <fieldset class="oi">
+      <legend> CR do Per&#237odo </legend>
+
+      <label for="Prd">Resultado:</label>
+      <input type="text" name="Prd" id="Prd" />
+
+   </fieldset>
+
+   <fieldset class="oi">
+      <legend> CR </legend>
+
+      <label for="psat">Resultado:</label>
+      <input oninput="setTwoNumberDecimal(this)" step="0.01" value="0.00" type="number" name="psat" id="psat" />
+
+
+   </fieldset>
+   </fieldset>
+
+
+   <fieldset class="calc">
+      <input type="button" value="Calcular" class="botao" onClick="calcular(document.calcform.value)"/>
+   </fieldset>
+
+
+   <fieldset class="uso">
+      <legend class="uso"> COMO USAR: </legend>
+&#149 Selecione quantos cr&#233ditos a mat&#233ria tem e digite nota que voc&#234 obteve ou espera obter nela.<br>
+&#149 Caso n&#227o fa&#231a 6 mat&#233rias, deixe o campo <b>cr&#233ditos</b> com a op&#231&#227o "Vazio" e deixe o campo <b>nota</b> em BRANCO.<br>
+&#149 Voc&#234 pode optar por calcular CR deste per&#237odo ou o CR geral, sendo que para calcular este &#250ltimo, &#233 necess&#225rio informar o CrR e os Pontos do periodo anterior, encontrados no Boletim ou Hist&#243rico no Siga (veja abaixo).  <br>
+&#149 Caso deseje calcular somente o CR do per&#237odo deixe os campos de "Dados do Siga" em BRANCO.</p>
+   </fieldset>
+
+   <fieldset class="uso">
+      <legend class="uso"> O QUE S&Atilde;O E COMO DESCOBRIR CrR E PONTOS: </legend>
+&#149 Tendo em vista que o CR geral &eacute; calculado em cima de todas as notas e de todos os per&iacute;odos, &eacute; necess&aacute;rio ter informa&ccedil;&otilde;es precisas sobre os per&iacute;odos anteriores. Simplesmente saber o CR n&atilde;o satisfaria esta necessidade, uma vez que o CR informado no siga esta aproximado e poderia levar a erros no c&aacute;lculo.<br>
+&#149 Para que n&atilde;o seja necess&aacute;rio informar todas as suas notas, trabalharemos com o &ldquo;CrR&rdquo; e os &ldquo;Pontos&rdquo;. O CrR &eacute; a soma de todos os cr&eacute;ditos realizados (incluindo reprova&ccedil;&otilde;es) e os Pontos s&atilde;o a soma das notas multiplicadas por seus respectivos cr&eacute;ditos.<br>
+&#149 &Eacute; importante que voc&ecirc; pegue esses dados referentes ao &Uacute;LTIMO PER&Iacute;ODO CONCLU&Iacute;DO. Caso voc&ecirc; esteja no 4&deg; per&iacute;odo, use o CrR e Pontos do 3&deg; per&iacute;odo. Isto &eacute; importante pois no final do per&iacute;odo, conforme algumas notas s&atilde;o lan&ccedil;adas no SIGA, o CrR e os Pontos v&atilde;o sendo atualizados, e se voc&ecirc; utilizar esse valor parcialmente atualizado, n&atilde;o obter&aacute; o resultado correto.<br>
+&#149 Para encontra-los, fa&ccedil;a login no SIGA, baixe o seu Boletim e procure por CrR acumulado e os Pontos acumulados, como na imagem abaixo. Os valores est&atilde;o indicados nos asteriscos vermelhos.<br>
+
+<img src="img/boletim.jpg" alt="some text" width=900 height=auto>
+
+   </fieldset>
+
+</form>
+</body>
+</html>
