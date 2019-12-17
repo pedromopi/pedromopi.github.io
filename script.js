@@ -16,10 +16,9 @@ function calcular() {
    var N6 = document.calcform.N6.value;
    var Prd = 1*C1*N1 + 1*C2*N2 + 1*C3*N3 + 1*C4*N4 + 1*C5*N5 + 1*C6*N6;
    var CR = (1*Pontos + 1*Prd)/(1*CRO + 1*C1 + 1*C2 + 1*C3 + 1*C4 + 1*C5 + 1*C6)
+   var crparcial = (Prd)/(1*C1 + 1*C2 + 1*C3 + 1*C4 + 1*C5 + 1*C6)
 
 
-
-
-   document.calcform.Prd.value = Prd;
+   document.calcform.Prd.value = crparcial;
    document.calcform.psat.value = CR;
 }
