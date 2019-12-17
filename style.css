@@ -1,6 +1,8 @@
 form fieldset {
+   display: flex;
+   flex-direction: row;
    margin: 10px auto 6px auto;
-   width: 40%;
+   width: 80%;
    border: solid black 1px;
    padding: 3%;
 }
@@ -12,25 +14,17 @@ form legend {
    font-size: 100%;
    font-weight: bold;
    background-color: #B2D7FA;
+
+
 }
 
 form label {
-   display: block;
    font-size: 14px;
    margin-top: 0px;
 }
 
-
-form select {
-   width: 20%;
-   position: relative;
-   right: 80px;
-   top: -30px;
-   float: right;
-
-}
-
 form input {
+   right:0px;
    width: 20%;
    border: block #ccc 1px;
    font-size: 11px;
@@ -43,6 +37,10 @@ form input.botao {
    float: right;
 }
 
-.nota {
-   float:leftu;
-}
+
+
+
+
+
+
+
