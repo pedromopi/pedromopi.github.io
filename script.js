@@ -22,7 +22,3 @@ function calcular() {
    document.calcform.Prd.value = crparcial;
    document.calcform.psat.value = CR;
 }
-
-function setTwoNumberDecimal(el) {
-        el.value = parseFloat(el.value).toFixed(2);
-    };
