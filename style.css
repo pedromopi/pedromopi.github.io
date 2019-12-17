@@ -6,6 +6,7 @@ form fieldset {
    width: 80%;
    border: solid black 1px;
    padding: 3%;
+
 }
 
 form legend {
@@ -55,6 +56,7 @@ form fieldset.oi {
    flex-direction: row;
    flex-wrap: wrap;
    justify-content: space-around;
+   background-color: rgba(255, 255, 255, 0.6)
 
 }
 
@@ -73,6 +75,7 @@ form fieldset.uso {
    border: solid black 1px;
    padding: 1%;
    width: 80%;
+   background-color: rgba(255, 255, 255, 0.6)
 
 }
 
@@ -98,6 +101,37 @@ form fieldset.calc {
    width: 15%;
 
 }
+
+.background-image {
+  position: fixed;
+  overflow: auto;
+  left: 0;
+  top: -5px;
+  z-index: -1;
+  display: block;
+  background-image: url(img/IMG_3711.JPG);
+  opacity:0.2;
+  width: 1200px;
+  height: 110%;
+  -webkit-filter: blur(5px) brightness(0.95);
+  -moz-filter: blur(5px) brightness(0.95);
+  -o-filter: blur(5px) brightness(0.95);
+  -ms-filter: blur(5px) brightness(0.95);
+  filter: blur(5px) brightness(0.95);
+}
+
+.content {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+
+
+
 
 
 
