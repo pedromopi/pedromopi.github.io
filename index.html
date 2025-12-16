@@ -151,6 +151,25 @@
             white-space: pre-line;
         }
 
+        .description .extra {
+            display: none;
+            margin-top: 0.75rem;
+        }
+
+        .toggle-desc {
+            background: none;
+            border: none;
+            color: var(--primary);
+            font-weight: 700;
+            cursor: pointer;
+            padding: 0;
+            margin-top: 0.75rem;
+        }
+
+        .toggle-desc:hover {
+            text-decoration: underline;
+        }
+
         /* Projetos */
         .projects-section {
             margin-top: 5rem;
@@ -275,13 +294,16 @@
                 <p class="handle" data-key="handle">@pedromopi</p>
                 <p class="role" data-key="role">Desenvolvedor Full Stack</p>
                 <p class="description" data-key="desc">
-                    Engenheiro químico por formação, data scientist por profissão e desenvolvedor por curiosidade crônica.
+                    <span data-key="descIntro">Engenheiro químico por formação, data scientist por profissão e desenvolvedor por curiosidade crônica.</span>
+                    <span class="extra" id="desc-more" data-key="descMore">
                     Trabalho diariamente com Python, SQL e análise de dados em contextos reais de crédito, risco e grandes volumes de informação.
 
                     Tenho forte interesse em sistemas, automação e engenharia reversa. Desenvolvo apps e ferramentas para iOS e macOS, principalmente em Objective-C, (mas aprendendo Swift), explorando desde UI até hooks de baixo nível.
 
                     Também gosto de construir soluções completas, do backend em Python e AWS até interfaces simples e funcionais.
                     Costumo focar em código pragmático, scripts que realmente resolvem problemas, otimização de performance e entendimento profundo de como as coisas funcionam.
+                    </span>
+                    <button class="toggle-desc" id="toggle-desc" onclick="toggleDescription()">Ver mais</button>
                 </p>
             </div>
         </section>
@@ -336,7 +358,10 @@
                 name: "Pedro Borges",
                 handle: "@pedromopi",
                 role: "Desenvolvedor Full Stack",
-                desc: "Engenheiro químico por formação, data scientist por profissão e desenvolvedor por curiosidade crônica.\nTrabalho diariamente com Python, SQL e análise de dados em contextos reais de crédito, risco e grandes volumes de informação.\n\nTenho forte interesse em sistemas, automação e engenharia reversa. Desenvolvo apps e ferramentas para iOS e macOS, principalmente em Objective-C, (mas aprendendo Swift), explorando desde UI até hooks de baixo nível.\n\nTambém gosto de construir soluções completas, do backend em Python e AWS até interfaces simples e funcionais.\nCostumo focar em código pragmático, scripts que realmente resolvem problemas, otimização de performance e entendimento profundo de como as coisas funcionam.",
+                descIntro: "Engenheiro químico por formação, data scientist por profissão e desenvolvedor por curiosidade crônica.",
+                descMore: "Trabalho diariamente com Python, SQL e análise de dados em contextos reais de crédito, risco e grandes volumes de informação.\n\nTenho forte interesse em sistemas, automação e engenharia reversa. Desenvolvo apps e ferramentas para iOS e macOS, principalmente em Objective-C, (mas aprendendo Swift), explorando desde UI até hooks de baixo nível.\n\nTambém gosto de construir soluções completas, do backend em Python e AWS até interfaces simples e funcionais.\nCostumo focar em código pragmático, scripts que realmente resolvem problemas, otimização de performance e entendimento profundo de como as coisas funcionam.",
+                btnMore: "Ver mais",
+                btnLess: "Ver menos",
                 projectsTitle: "Trabalhos Recentes",
                 p1Title: "E-commerce App",
                 p1Desc: "Uma plataforma de vendas completa com dashboard administrativo e pagamentos integrados.",
@@ -351,7 +376,10 @@
                 name: "Pedro Borges",
                 handle: "@pedromopi",
                 role: "Full Stack Developer",
-                desc: "Chemical engineer by training, data scientist by trade, and developer out of chronic curiosity.\nI work daily with Python, SQL, and data analysis in real-world credit, risk, and large-scale information contexts.\n\nI have a strong interest in systems, automation, and reverse engineering. I build apps and tools for iOS and macOS, mainly in Objective-C (learning Swift), exploring everything from UI to low-level hooks.\n\nI also enjoy building end-to-end solutions, from Python/AWS backends to simple, functional interfaces.\nI tend to focus on pragmatic code, scripts that actually solve problems, performance optimization, and a deep understanding of how things work.",
+                descIntro: "Chemical engineer by training, data scientist by trade, and developer out of chronic curiosity.",
+                descMore: "I work daily with Python, SQL, and data analysis in real-world credit, risk, and large-scale information contexts.\n\nI have a strong interest in systems, automation, and reverse engineering. I build apps and tools for iOS and macOS, mainly in Objective-C (learning Swift), exploring everything from UI to low-level hooks.\n\nI also enjoy building end-to-end solutions, from Python/AWS backends to simple, functional interfaces.\nI tend to focus on pragmatic code, scripts that actually solve problems, performance optimization, and a deep understanding of how things work.",
+                btnMore: "Read more",
+                btnLess: "Read less",
                 projectsTitle: "Recent Works",
                 p1Title: "E-commerce App",
                 p1Desc: "A complete sales platform with an administrative dashboard and integrated payments.",
@@ -363,6 +391,7 @@
         };
 
         let currentLang = 'pt';
+        let isDescExpanded = false;
 
         function toggleLanguage() {
             // Alterna o idioma
@@ -379,7 +408,24 @@
                     element.innerText = translations[currentLang][key];
                 }
             });
+
+            setDescriptionState(isDescExpanded);
         }
+
+        function setDescriptionState(expanded) {
+            const more = document.getElementById('desc-more');
+            const toggleBtn = document.getElementById('toggle-desc');
+            isDescExpanded = expanded;
+            more.style.display = isDescExpanded ? 'block' : 'none';
+            toggleBtn.innerText = isDescExpanded ? translations[currentLang].btnLess : translations[currentLang].btnMore;
+        }
+
+        function toggleDescription() {
+            setDescriptionState(!isDescExpanded);
+        }
+
+        // Estado inicial do texto expandido
+        setDescriptionState(false);
 
         // Atualiza o ano automaticamente
         document.getElementById('year').innerText = new Date().getFullYear();
