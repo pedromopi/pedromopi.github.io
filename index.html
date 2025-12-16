@@ -56,12 +56,19 @@
             cursor: pointer;
             font-weight: 600;
             font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
         }
 
         .lang-btn:hover {
             background: var(--primary);
             color: var(--bg-color);
             transform: translateY(-2px);
+        }
+
+        .flag {
+            font-size: 1.1rem;
         }
 
         /* Hero Section (Sobre) */
@@ -100,6 +107,13 @@
             color: var(--primary);
             margin-bottom: 1rem;
             font-weight: 600;
+        }
+
+        .handle {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            font-weight: 600;
+            letter-spacing: 0.3px;
         }
 
         .description {
@@ -213,7 +227,10 @@
 
     <div class="container">
         <header>
-            <button class="lang-btn" onclick="toggleLanguage()" id="btn-lang">EN</button>
+            <button class="lang-btn" onclick="toggleLanguage()" id="btn-lang">
+                <span class="flag" id="flag">🇧🇷</span>
+                <span id="btn-lang-text">EN</span>
+            </button>
         </header>
 
         <section class="hero">
@@ -221,7 +238,8 @@
                 <img src="img/me_compresssed.png" alt="Profile" class="profile-img">
             </div>
             <div class="hero-content">
-                <h1 data-key="name">Seu Nome</h1>
+                <h1 data-key="name">Pedro Borges</h1>
+                <p class="handle" data-key="handle">@pedromopi</p>
                 <p class="role" data-key="role">Desenvolvedor Full Stack</p>
                 <p class="description" data-key="desc">
                     Apaixonado por criar experiências digitais intuitivas e performáticas. Especializado em transformar ideias complexas em código limpo e soluções escaláveis.
@@ -275,7 +293,9 @@
         const translations = {
             pt: {
                 btn: "EN",
-                name: "Seu Nome",
+                flag: "🇧🇷",
+                name: "Pedro Borges",
+                handle: "@pedromopi",
                 role: "Desenvolvedor Full Stack",
                 desc: "Apaixonado por criar experiências digitais intuitivas e performáticas. Especializado em transformar ideias complexas em código limpo e soluções escaláveis.",
                 projectsTitle: "Trabalhos Recentes",
@@ -288,7 +308,9 @@
             },
             en: {
                 btn: "PT",
-                name: "Your Name",
+                flag: "🇺🇸",
+                name: "Pedro Borges",
+                handle: "@pedromopi",
                 role: "Full Stack Developer",
                 desc: "Passionate about creating intuitive and performant digital experiences. Specialized in transforming complex ideas into clean code and scalable solutions.",
                 projectsTitle: "Recent Works",
@@ -307,8 +329,9 @@
             // Alterna o idioma
             currentLang = currentLang === 'pt' ? 'en' : 'pt';
             
-            // Atualiza o texto do botão
-            document.getElementById('btn-lang').innerText = translations[currentLang].btn;
+            // Atualiza o texto e bandeira do botão
+            document.getElementById('btn-lang-text').innerText = translations[currentLang].btn;
+            document.getElementById('flag').innerText = translations[currentLang].flag;
 
             // Atualiza todos os elementos com o atributo data-key
             document.querySelectorAll('[data-key]').forEach(element => {
