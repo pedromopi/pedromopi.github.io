@@ -316,7 +316,7 @@
         </section>
 
         <footer>
-            <p>&copy; 2024 Dev Portfolio.</p>
+            <p>&copy; <span id="year"></span> Dev Portfolio.</p>
         </footer>
     </div>
 
@@ -373,6 +373,9 @@
                 }
             });
         }
+
+        // Atualiza o ano automaticamente
+        document.getElementById('year').innerText = new Date().getFullYear();
     </script>
 </body>
 </html>
