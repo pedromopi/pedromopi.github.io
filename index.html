@@ -1,202 +1,323 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
-   <title> CR </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dev Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --primary: #38bdf8;
+            --text-main: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --gradient: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+        }
 
-  <link rel="stylesheet" href="style.css" />
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+        }
 
-  <script src="script.js"></script>
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: radial-gradient(circle at 10% 20%, rgba(56, 189, 248, 0.1) 0%, transparent 20%),
+                              radial-gradient(circle at 90% 80%, rgba(129, 140, 248, 0.1) 0%, transparent 20%);
+        }
 
+        /* Container Principal */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Header e Botão de Idioma */
+        header {
+            display: flex;
+            justify-content: flex-end;
+            padding: 1rem 0;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .lang-btn:hover {
+            background: var(--primary);
+            color: var(--bg-color);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section (Sobre) */
+        .hero {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            margin: 4rem 0;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .profile-img-container {
+            position: relative;
+        }
+
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary);
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .role {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .description {
+            color: var(--text-secondary);
+            max-width: 500px;
+            font-size: 1rem;
+        }
+
+        /* Projetos */
+        .projects-section {
+            margin-top: 5rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 60px;
+            height: 4px;
+            background: var(--gradient);
+            border-radius: 2px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-stack {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--primary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 5rem;
+            text-align: center;
+            color: var(--text-secondary);
+            padding-bottom: 2rem;
+            font-size: 0.9rem;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                gap: 2rem;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .description {
+                margin: 0 auto;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
 </head>
-
-<header align="center">
-  <img src="img/IMG_3720.PNG" alt="logo" width=200 height=200 align=”middle”>
-</header>
-
 <body>
 
-<div class="background-image"></div>
+    <div class="container">
+        <header>
+            <button class="lang-btn" onclick="toggleLanguage()" id="btn-lang">EN</button>
+        </header>
 
+        <section class="hero">
+            <div class="profile-img-container">
+                <img src="https://ui-avatars.com/api/?name=Dev+Name&background=0D8ABC&color=fff&size=200" alt="Profile" class="profile-img">
+            </div>
+            <div class="hero-content">
+                <h1 data-key="name">Seu Nome</h1>
+                <p class="role" data-key="role">Desenvolvedor Full Stack</p>
+                <p class="description" data-key="desc">
+                    Apaixonado por criar experiências digitais intuitivas e performáticas. Especializado em transformar ideias complexas em código limpo e soluções escaláveis.
+                </p>
+            </div>
+        </section>
 
-<form name="calcform" method="post" action="">
+        <section class="projects-section">
+            <h2 class="section-title" data-key="projectsTitle">Trabalhos Recentes</h2>
+            
+            <div class="grid">
+                <div class="card">
+                    <h3 data-key="p1Title">E-commerce App</h3>
+                    <p data-key="p1Desc">Uma plataforma de vendas completa com dashboard administrativo e pagamentos integrados.</p>
+                    <div class="tech-stack">
+                        <span class="tag">React</span>
+                        <span class="tag">Node.js</span>
+                        <span class="tag">MongoDB</span>
+                    </div>
+                </div>
 
+                <div class="card">
+                    <h3 data-key="p2Title">Finance Dashboard</h3>
+                    <p data-key="p2Desc">Sistema de gestão financeira pessoal com gráficos interativos e exportação de dados.</p>
+                    <div class="tech-stack">
+                        <span class="tag">Vue.js</span>
+                        <span class="tag">Firebase</span>
+                        <span class="tag">Chart.js</span>
+                    </div>
+                </div>
 
+                <div class="card">
+                    <h3 data-key="p3Title">API Gateway</h3>
+                    <p data-key="p3Desc">Um gateway robusto para microsserviços com autenticação JWT e Rate Limiting.</p>
+                    <div class="tech-stack">
+                        <span class="tag">Go</span>
+                        <span class="tag">Docker</span>
+                        <span class="tag">AWS</span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-   <fieldset class="main">
-   <fieldset class="oi">
-      <legend> Mat&#233ria 1 </legend>
+        <footer>
+            <p>&copy; 2024 Dev Portfolio.</p>
+        </footer>
+    </div>
 
-      <label for="C1">Creditos:</label>
-      <select name="C1" class="C1" id="C1">
-         <option value="0">Vazio</option>
-         <option value="1">1 Credito</option>
-         <option value="2">2 Creditos</option>
-         <option value="3">3 Creditos</option>
-         <option value="4">4 Creditos</option>
-         <option value="5">5 Creditos</option>
-      </select>
+    <script>
+        // Configuração de Idiomas
+        const translations = {
+            pt: {
+                btn: "EN",
+                name: "Seu Nome",
+                role: "Desenvolvedor Full Stack",
+                desc: "Apaixonado por criar experiências digitais intuitivas e performáticas. Especializado em transformar ideias complexas em código limpo e soluções escaláveis.",
+                projectsTitle: "Trabalhos Recentes",
+                p1Title: "E-commerce App",
+                p1Desc: "Uma plataforma de vendas completa com dashboard administrativo e pagamentos integrados.",
+                p2Title: "Finance Dashboard",
+                p2Desc: "Sistema de gestão financeira pessoal com gráficos interativos e exportação de dados.",
+                p3Title: "API Gateway",
+                p3Desc: "Um gateway robusto para microsserviços com autenticação JWT e Rate Limiting."
+            },
+            en: {
+                btn: "PT",
+                name: "Your Name",
+                role: "Full Stack Developer",
+                desc: "Passionate about creating intuitive and performant digital experiences. Specialized in transforming complex ideas into clean code and scalable solutions.",
+                projectsTitle: "Recent Works",
+                p1Title: "E-commerce App",
+                p1Desc: "A complete sales platform with an administrative dashboard and integrated payments.",
+                p2Title: "Finance Dashboard",
+                p2Desc: "Personal finance management system with interactive charts and data export.",
+                p3Title: "API Gateway",
+                p3Desc: "A robust gateway for microservices with JWT authentication and Rate Limiting."
+            }
+        };
 
-      <label for="N1">Nota:</label>
-      <input type="text" class="nota" placeholder="Digite a nota nesta materia" name="N1" id="N1" />
+        let currentLang = 'pt';
 
-   </fieldset>
+        function toggleLanguage() {
+            // Alterna o idioma
+            currentLang = currentLang === 'pt' ? 'en' : 'pt';
+            
+            // Atualiza o texto do botão
+            document.getElementById('btn-lang').innerText = translations[currentLang].btn;
 
-
-   <fieldset class="oi">
-      <legend> Mat&#233ria 2 </legend>
-
-      <label for="C2">Creditos:</label>
-      <select name="C2" class="C2" id="C2">
-         <option value="0">Vazio</option>
-         <option value="1">1 Cr&#233dito</option>
-         <option value="2">2 Cr&#233ditos</option>
-         <option value="3">3 Creditos</option>
-         <option value="4">4 Creditos</option>
-         <option value="5">5 Creditos</option>
-      </select>
-
-      <label for="N2">Nota:</label>
-      <input type="text" class="nota" placeholder="Digite a nota nesta materia" name="N2" id="N2" />
-
-   </fieldset>
-
-   <fieldset class="oi">
-      <legend> Mat&#233ria 3 </legend>
-
-      <label for="C3">Creditos:</label>
-      <select name="C3" class="C3" id="C3">
-         <option value="0">Vazio</option>
-         <option value="1">1 Credito</option>
-         <option value="2">2 Creditos</option>
-         <option value="3">3 Creditos</option>
-         <option value="4">4 Creditos</option>
-         <option value="5">5 Creditos</option>
-      </select>
-
-      <label for="N3">Nota:</label>
-      <input type="text" class="nota" placeholder="Digite a nota nesta materia" name="N3" id="N3" />
-
-   </fieldset>
-   </fieldset>
-   <fieldset class="main">
-
-
-
-   <fieldset class="oi">
-      <legend> Mat&#233ria 4 </legend>
-
-      <label for="C4">Creditos:</label>
-      <select name="C4" class="C4" id="C4">
-         <option value="0">Vazio</option>
-         <option value="1">1 Credito</option>
-         <option value="2">2 Creditos</option>
-         <option value="3">3 Creditos</option>
-         <option value="4">4 Creditos</option>
-         <option value="5">5 Creditos</option>
-      </select>
-
-      <label for="N4">Nota:</label>
-      <input type="text" name="N4" placeholder="Digite a nota nesta materia" id="N4" />
-
-
-   </fieldset>
-
-
-
-   <fieldset class="oi">
-      <legend> Mat&#233ria 5 </legend>
-
-      <label for="C5">Creditos:</label>
-      <select name="C5" class="C5" id="C5">
-         <option value="0">Vazio</option>
-         <option value="1">1 Credito</option>
-         <option value="2">2 Creditos</option>
-         <option value="3">3 Creditos</option>
-         <option value="4">4 Creditos</option>
-         <option value="5">5 Creditos</option>
-      </select>
-
-      <label for="N5">Nota:</label>
-      <input type="text" name="N5" placeholder="Digite a nota nesta materia" id="N5" />
-
-
-   </fieldset>
-
-   <fieldset class="oi">
-      <legend> Mat&#233ria 6 </legend>
-
-      <label for="C6">Creditos:</label>
-      <select name="C6" class="C6" id="C6">
-         <option value="0">Vazio</option>
-         <option value="1">1 Credito</option>
-         <option value="2">2 Creditos</option>
-         <option value="3">3 Creditos</option>
-         <option value="4">4 Creditos</option>
-         <option value="5">5 Creditos</option>
-      </select>
-
-      <label for="N6">Nota:</label>
-      <input type="text" name="N6" id="N6" />
-
-   </fieldset>
-
-   </fieldset>
-   <fieldset class="main"> 
-
-   <fieldset class="oi">
-      <legend> Dados do Siga </legend>
-
-      <label for="CrR">Digite o CrR:</label>
-      <input type="text" class="in" name="CRO" id="CRO" />
-
-      <label for="Pontos">Digite Pontos:</label>
-      <input type="text" class="in" name="Pontos" id="Pontos" />
-
-   </fieldset>
-
-   <fieldset class="oi">
-      <legend> CR do Per&#237odo </legend>
-
-      <label for="Prd">Resultado:</label>
-      <input type="text" name="Prd" id="Prd" />
-
-   </fieldset>
-
-   <fieldset class="oi">
-      <legend> CR </legend>
-
-      <label for="psat">Resultado:</label>
-      <input type="number" name="psat" id="psat" />
-
-
-   </fieldset>
-   </fieldset>
-
-
-   <fieldset class="calc">
-      <input type="button" value="Calcular" class="botao" onClick="calcular(document.calcform.value)"/>
-   </fieldset>
-
-
-   <fieldset class="uso">
-      <legend class="uso"> COMO USAR: </legend>
-&#149 Selecione quantos cr&#233ditos a mat&#233ria tem e digite nota que voc&#234 obteve ou espera obter nela.<br>
-&#149 Caso n&#227o fa&#231a 6 mat&#233rias, deixe o campo <b>cr&#233ditos</b> com a op&#231&#227o "Vazio" e deixe o campo <b>nota</b> em BRANCO.<br>
-&#149 Voc&#234 pode optar por calcular CR deste per&#237odo ou o CR geral, sendo que para calcular este &#250ltimo, &#233 necess&#225rio informar o CrR e os Pontos do periodo anterior, encontrados no Boletim ou Hist&#243rico no Siga (veja abaixo).  <br>
-&#149 Caso deseje calcular somente o CR do per&#237odo deixe os campos de "Dados do Siga" em BRANCO.</p>
-   </fieldset>
-
-   <fieldset class="uso">
-      <legend class="uso"> O QUE S&Atilde;O E COMO DESCOBRIR CrR E PONTOS: </legend>
-&#149 Tendo em vista que o CR geral &eacute; calculado em cima de todas as notas e de todos os per&iacute;odos, &eacute; necess&aacute;rio ter informa&ccedil;&otilde;es precisas sobre os per&iacute;odos anteriores. Simplesmente saber o CR n&atilde;o satisfaria esta necessidade, uma vez que o CR informado no siga esta aproximado e poderia levar a erros no c&aacute;lculo.<br>
-&#149 Para que n&atilde;o seja necess&aacute;rio informar todas as suas notas, trabalharemos com o &ldquo;CrR&rdquo; e os &ldquo;Pontos&rdquo;. O CrR &eacute; a soma de todos os cr&eacute;ditos realizados (incluindo reprova&ccedil;&otilde;es) e os Pontos s&atilde;o a soma das notas multiplicadas por seus respectivos cr&eacute;ditos.<br>
-&#149 &Eacute; importante que voc&ecirc; pegue esses dados referentes ao &Uacute;LTIMO PER&Iacute;ODO CONCLU&Iacute;DO. Caso voc&ecirc; esteja no 4&deg; per&iacute;odo, use o CrR e Pontos do 3&deg; per&iacute;odo. Isto &eacute; importante pois no final do per&iacute;odo, conforme algumas notas s&atilde;o lan&ccedil;adas no SIGA, o CrR e os Pontos v&atilde;o sendo atualizados, e se voc&ecirc; utilizar esse valor parcialmente atualizado, n&atilde;o obter&aacute; o resultado correto.<br>
-&#149 Para encontra-los, fa&ccedil;a login no SIGA, baixe o seu Boletim e procure por CrR acumulado e os Pontos acumulados, como na imagem abaixo. Os valores est&atilde;o indicados nos asteriscos vermelhos.<br>
-
-<img src="img/boletim.jpg" alt="boletim" width=900 height=auto>
-
-   </fieldset>
-
-</form>
+            // Atualiza todos os elementos com o atributo data-key
+            document.querySelectorAll('[data-key]').forEach(element => {
+                const key = element.getAttribute('data-key');
+                if (translations[currentLang][key]) {
+                    element.innerText = translations[currentLang][key];
+                }
+            });
+        }
+    </script>
 </body>
 </html>
