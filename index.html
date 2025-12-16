@@ -8,12 +8,13 @@
     
     <style>
         :root {
-            --bg-color: #0f172a;
-            --card-bg: rgba(30, 41, 59, 0.7);
-            --primary: #38bdf8;
-            --text-main: #f1f5f9;
-            --text-secondary: #94a3b8;
-            --gradient: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+            --bg-color: #1a120f;
+            --card-bg: rgba(255, 255, 255, 0.04);
+            --primary: #d26f45;
+            --primary-strong: #b4542f;
+            --text-main: #f4ede5;
+            --text-secondary: #c8b6a8;
+            --gradient: linear-gradient(135deg, #d26f45 0%, #b4542f 55%, #f0c7a4 100%);
         }
 
         * {
@@ -29,8 +30,8 @@
             color: var(--text-main);
             line-height: 1.6;
             overflow-x: hidden;
-            background-image: radial-gradient(circle at 10% 20%, rgba(56, 189, 248, 0.1) 0%, transparent 20%),
-                              radial-gradient(circle at 90% 80%, rgba(129, 140, 248, 0.1) 0%, transparent 20%);
+            background-image: radial-gradient(circle at 12% 18%, rgba(210, 111, 69, 0.14) 0%, transparent 22%),
+                              radial-gradient(circle at 78% 82%, rgba(240, 199, 164, 0.12) 0%, transparent 24%);
         }
 
         /* Container Principal */
@@ -87,12 +88,14 @@
             display: flex;
             align-items: center;
             gap: 0.4rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
 
         .lang-btn:hover {
             background: var(--primary);
             color: var(--bg-color);
             transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(210, 111, 69, 0.35);
         }
 
         .flag {
@@ -102,7 +105,7 @@
         /* Hero Section (Sobre) */
         .hero {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 3rem;
             margin: 4rem 0;
             animation: fadeIn 1s ease-out;
@@ -118,56 +121,59 @@
             border-radius: 50%;
             object-fit: cover;
             border: 3px solid var(--primary);
-            box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+            box-shadow: 0 0 25px rgba(210, 111, 69, 0.35);
+        }
+
+        .profile-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            max-width: 220px;
         }
 
         .hero-content h1 {
             font-size: 3.5rem;
             font-weight: 700;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.12rem;
+            line-height: 1.18;
+            padding-bottom: 0.08rem;
             background: var(--gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
+        .handle-role {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin-bottom: 0.35rem;
+        }
+
         .role {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--primary);
-            margin-bottom: 1rem;
+            margin: 0;
             font-weight: 600;
         }
 
         .handle {
             color: var(--text-secondary);
-            margin-bottom: 1rem;
+            margin: 0;
             font-weight: 600;
             letter-spacing: 0.3px;
         }
 
         .description {
             color: var(--text-secondary);
-            max-width: 500px;
+            max-width: 650px;
             font-size: 1rem;
             white-space: pre-line;
         }
 
         .description .extra {
-            display: none;
+            display: block;
             margin-top: 0.75rem;
-        }
-
-        .toggle-desc {
-            background: none;
-            border: none;
-            color: var(--primary);
-            font-weight: 700;
-            cursor: pointer;
-            padding: 0;
-            margin-top: 0.75rem;
-        }
-
-        .toggle-desc:hover {
-            text-decoration: underline;
         }
 
         /* Projetos */
@@ -205,6 +211,7 @@
             border-radius: 16px;
             padding: 2rem;
             backdrop-filter: blur(10px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
         }
 
         .card:hover {
@@ -231,7 +238,7 @@
         }
 
         .tag {
-            background: rgba(56, 189, 248, 0.1);
+            background: rgba(210, 111, 69, 0.12);
             color: var(--primary);
             padding: 0.25rem 0.75rem;
             border-radius: 4px;
@@ -252,6 +259,7 @@
         @media (max-width: 768px) {
             .hero {
                 flex-direction: column;
+                align-items: center;
                 text-align: center;
                 gap: 2rem;
             }
@@ -280,72 +288,73 @@
                 <span class="github-handle">@pedromopi</span>
             </a>
             <button class="lang-btn" onclick="toggleLanguage()" id="btn-lang">
-                <span class="flag" id="flag">🇺🇸</span>
-                <span id="btn-lang-text">EN</span>
+                <span class="flag" id="flag"></span>
+                <span id="btn-lang-text"></span>
             </button>
         </header>
 
         <section class="hero">
             <div class="profile-img-container">
                 <img src="img/me_compresssed.png" alt="Profile" class="profile-img">
+                <div class="profile-skills">
+                    <span class="tag">Python</span>
+                    <span class="tag">SQL</span>
+                    <span class="tag">Objective-C</span>
+                    <span class="tag">Swift</span>
+                    <span class="tag">AWS</span>
+                    <span class="tag">MongoDB</span>
+                    <span class="tag">Automação</span>
+                </div>
             </div>
             <div class="hero-content">
-                <h1 data-key="name">Pedro Borges</h1>
-                <p class="handle" data-key="handle">@pedromopi</p>
-                <p class="role" data-key="role">Desenvolvedor Full Stack</p>
+                <h1>Pedro Borges</h1>
+                <div class="handle-role">
+                    <p class="handle">@pedromopi</p>
+                    <p class="role" data-key="role"></p>
+                </div>
                 <p class="description" data-key="desc">
-                    <span data-key="descIntro">Engenheiro químico por formação, data scientist por profissão e desenvolvedor por curiosidade crônica.</span>
-                    <span class="extra" id="desc-more" data-key="descMore">
-                    Trabalho diariamente com Python, SQL e análise de dados em contextos reais de crédito, risco e grandes volumes de informação.
-
-                    Tenho forte interesse em sistemas, automação e engenharia reversa. Desenvolvo apps e ferramentas para iOS e macOS, principalmente em Objective-C, (mas aprendendo Swift), explorando desde UI até hooks de baixo nível.
-
-                    Também gosto de construir soluções completas, do backend em Python e AWS até interfaces simples e funcionais.
-                    Costumo focar em código pragmático, scripts que realmente resolvem problemas, otimização de performance e entendimento profundo de como as coisas funcionam.
-                    </span>
-                    <button class="toggle-desc" id="toggle-desc" onclick="toggleDescription()">Ver mais</button>
+                    <span data-key="descIntro"></span>
+                    <span class="extra" id="desc-more" data-key="descMore"></span>
                 </p>
             </div>
         </section>
 
         <section class="projects-section">
-            <h2 class="section-title" data-key="projectsTitle">Trabalhos Recentes</h2>
+            <h2 class="section-title" data-key="projectsTitle"></h2>
             
             <div class="grid">
                 <div class="card">
-                    <h3 data-key="p1Title">E-commerce App</h3>
-                    <p data-key="p1Desc">Uma plataforma de vendas completa com dashboard administrativo e pagamentos integrados.</p>
+                    <h3>Aurora Developers</h3>
+                    <p data-key="p1Desc"></p>
                     <div class="tech-stack">
-                        <span class="tag">React</span>
-                        <span class="tag">Node.js</span>
+                        <span class="tag">AWS Lambda</span>
+                        <span class="tag">App Store Connect API</span>
                         <span class="tag">MongoDB</span>
                     </div>
                 </div>
 
                 <div class="card">
-                    <h3 data-key="p2Title">Finance Dashboard</h3>
-                    <p data-key="p2Desc">Sistema de gestão financeira pessoal com gráficos interativos e exportação de dados.</p>
+                    <h3>iCloud Offloader</h3>
+                    <p data-key="p2Desc"></p>
                     <div class="tech-stack">
-                        <span class="tag">Vue.js</span>
-                        <span class="tag">Firebase</span>
-                        <span class="tag">Chart.js</span>
+                        <span class="tag">Swift</span>
                     </div>
                 </div>
 
                 <div class="card">
-                    <h3 data-key="p3Title">API Gateway</h3>
-                    <p data-key="p3Desc">Um gateway robusto para microsserviços com autenticação JWT e Rate Limiting.</p>
+                    <h3>iOS Instagram Hooks</h3>
+                    <p data-key="p3Desc"></p>
                     <div class="tech-stack">
-                        <span class="tag">Go</span>
-                        <span class="tag">Docker</span>
-                        <span class="tag">AWS</span>
+                        <span class="tag">ObjC</span>
+                        <span class="tag">Reverse engineering</span>
+                        <span class="tag">Dynamic hooking</span>
                     </div>
                 </div>
             </div>
         </section>
 
         <footer>
-            <p>&copy; <span id="year"></span> Dev Portfolio.</p>
+            <p>&copy; <span id="year"></span> pedromopi.</p>
         </footer>
     </div>
 
@@ -355,80 +364,54 @@
             pt: {
                 btn: "EN",
                 flag: "🇺🇸",
-                name: "Pedro Borges",
-                handle: "@pedromopi",
                 role: "Desenvolvedor Full Stack",
-                descIntro: "Engenheiro químico por formação, data scientist por profissão e desenvolvedor por curiosidade crônica.",
-                descMore: "Trabalho diariamente com Python, SQL e análise de dados em contextos reais de crédito, risco e grandes volumes de informação.\n\nTenho forte interesse em sistemas, automação e engenharia reversa. Desenvolvo apps e ferramentas para iOS e macOS, principalmente em Objective-C, (mas aprendendo Swift), explorando desde UI até hooks de baixo nível.\n\nTambém gosto de construir soluções completas, do backend em Python e AWS até interfaces simples e funcionais.\nCostumo focar em código pragmático, scripts que realmente resolvem problemas, otimização de performance e entendimento profundo de como as coisas funcionam.",
+                descIntro: "Engenheiro por formação, data scientist por profissão e desenvolvedor por curiosidade crônica há mais de 15 anos.",
+                descMore: "Trabalho diariamente com Python, SQL e análise de dados em contextos financeiros com grandes volumes de informação.\n\nTenho forte interesse em sistemas, automação e engenharia reversa. Desenvolvo apps e ferramentas para iOS e macOS, principalmente em Objective-C, (mas aprendendo Swift), explorando desde UI até hooks de baixo nível.\n\nTambém gosto de construir soluções completas, do backend em Python e AWS até interfaces simples e funcionais.",
                 btnMore: "Ver mais",
                 btnLess: "Ver menos",
-                projectsTitle: "Trabalhos Recentes",
-                p1Title: "E-commerce App",
-                p1Desc: "Uma plataforma de vendas completa com dashboard administrativo e pagamentos integrados.",
-                p2Title: "Finance Dashboard",
-                p2Desc: "Sistema de gestão financeira pessoal com gráficos interativos e exportação de dados.",
-                p3Title: "API Gateway",
-                p3Desc: "Um gateway robusto para microsserviços com autenticação JWT e Rate Limiting."
+                projectsTitle: "Trabalhos publicos",
+                p1Desc: "Uma plataforma em nuvem para cadastro de usuários, assinatura e distribuição de testes de aplicativos iOS.",
+                p2Desc: "Um app para macOS que ajuda você a impedir que o iCloud Drive preencha silenciosamente o seu disco local.",
+                p3Desc: "Modificações para o app do Instagram no iOS realizadas por meio de hooks em tempo de execução, incluindo a possibilidade de baixar conteúdos, remover anúncios e mais."
             },
             en: {
                 btn: "PT",
                 flag: "🇧🇷",
-                name: "Pedro Borges",
-                handle: "@pedromopi",
                 role: "Full Stack Developer",
-                descIntro: "Chemical engineer by training, data scientist by trade, and developer out of chronic curiosity.",
-                descMore: "I work daily with Python, SQL, and data analysis in real-world credit, risk, and large-scale information contexts.\n\nI have a strong interest in systems, automation, and reverse engineering. I build apps and tools for iOS and macOS, mainly in Objective-C (learning Swift), exploring everything from UI to low-level hooks.\n\nI also enjoy building end-to-end solutions, from Python/AWS backends to simple, functional interfaces.\nI tend to focus on pragmatic code, scripts that actually solve problems, performance optimization, and a deep understanding of how things work.",
+                descIntro: "Engineer turned data scientist and developer out of chronic curiosity for over 15 years.",
+                descMore: "I work daily with Python, SQL, and data analysis in financial contexts with large volumes of information.\n\nI have a strong interest in systems, automation, and reverse engineering. I build apps and tools for iOS and macOS, mainly in Objective-C (learning Swift), exploring everything from UI to low-level hooks.\n\nI also enjoy building end-to-end solutions, from Python/AWS backends to simple, functional interfaces.",
                 btnMore: "Read more",
                 btnLess: "Read less",
-                projectsTitle: "Recent Works",
-                p1Title: "E-commerce App",
-                p1Desc: "A complete sales platform with an administrative dashboard and integrated payments.",
-                p2Title: "Finance Dashboard",
-                p2Desc: "Personal finance management system with interactive charts and data export.",
-                p3Title: "API Gateway",
-                p3Desc: "A robust gateway for microservices with JWT authentication and Rate Limiting."
+                projectsTitle: "Public Works",
+                p1Desc: "A cloud platform for user enrollment, signing and distribution of iOS app tests.",
+                p2Desc: "A macOS app that helps you stop iCloud Drive from silently filling up your local disk.",
+                p3Desc: "Modifications for Instagram's iOS app performed via on-the-fly hooks, including the ability to download content, remove ads, and more."
             }
         };
 
         let currentLang = 'pt';
-        let isDescExpanded = false;
+        function setLanguage(lang) {
+            currentLang = lang;
+            const t = translations[currentLang];
 
-        function toggleLanguage() {
-            // Alterna o idioma
-            currentLang = currentLang === 'pt' ? 'en' : 'pt';
-            
-            // Atualiza o texto e bandeira do botão
-            document.getElementById('btn-lang-text').innerText = translations[currentLang].btn;
-            document.getElementById('flag').innerText = translations[currentLang].flag;
+            document.getElementById('btn-lang-text').textContent = t.btn;
+            document.getElementById('flag').textContent = t.flag;
 
-            // Atualiza todos os elementos com o atributo data-key
             document.querySelectorAll('[data-key]').forEach(element => {
                 const key = element.getAttribute('data-key');
-                if (translations[currentLang][key]) {
-                    element.innerText = translations[currentLang][key];
+                if (t[key]) {
+                    element.textContent = t[key];
                 }
             });
-
-            setDescriptionState(isDescExpanded);
         }
 
-        function setDescriptionState(expanded) {
-            const more = document.getElementById('desc-more');
-            const toggleBtn = document.getElementById('toggle-desc');
-            isDescExpanded = expanded;
-            more.style.display = isDescExpanded ? 'block' : 'none';
-            toggleBtn.innerText = isDescExpanded ? translations[currentLang].btnLess : translations[currentLang].btnMore;
+        function toggleLanguage() {
+            setLanguage(currentLang === 'pt' ? 'en' : 'pt');
         }
-
-        function toggleDescription() {
-            setDescriptionState(!isDescExpanded);
-        }
-
-        // Estado inicial do texto expandido
-        setDescriptionState(false);
 
         // Atualiza o ano automaticamente
         document.getElementById('year').innerText = new Date().getFullYear();
+        setLanguage(currentLang);
     </script>
 </body>
 </html>
