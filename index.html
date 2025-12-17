@@ -51,29 +51,36 @@
         }
 
         .github-link {
-            color: var(--text-main);
+            color: var(--primary);
             text-decoration: none;
             font-weight: 600;
-            border: 1px solid rgba(255, 255, 255, 0.15);
+            border: 1px solid var(--primary);
             padding: 0.5rem 0.9rem;
             border-radius: 50px;
             display: flex;
             align-items: center;
             gap: 0.35rem;
-            background: rgba(255, 255, 255, 0.04);
+            background: transparent;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
 
         .github-link:hover {
             border-color: var(--primary);
-            color: var(--primary);
+            background: var(--primary);
+            color: var(--bg-color);
             transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(210, 111, 69, 0.35);
         }
 
         .github-handle {
-            color: var(--text-secondary);
+            color: inherit;
             font-weight: 600;
             letter-spacing: 0.3px;
             font-size: 0.9rem;
+        }
+
+        .github-link:hover .github-handle {
+            color: var(--bg-color);
         }
 
         .lang-btn {
@@ -113,6 +120,9 @@
 
         .profile-img-container {
             position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .profile-img {
@@ -124,12 +134,20 @@
             box-shadow: 0 0 25px rgba(210, 111, 69, 0.35);
         }
 
+        .profile-handle {
+            margin-top: 0.6rem;
+            font-weight: 700;
+            color: var(--text-secondary);
+            letter-spacing: 0.3px;
+        }
+
         .profile-skills {
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
             margin-top: 1rem;
             max-width: 220px;
+            justify-content: center;
         }
 
         .hero-content h1 {
@@ -311,6 +329,7 @@
         <section class="hero">
             <div class="profile-img-container">
                 <img src="img/me_compresssed.png" alt="Profile" class="profile-img">
+                <p class="profile-handle">@pedromopi</p>
                 <div class="profile-skills">
                     <span class="tag">Python</span>
                     <span class="tag">SQL</span>
@@ -324,7 +343,6 @@
             <div class="hero-content">
                 <h1>Pedro Borges</h1>
                 <div class="handle-role">
-                    <p class="handle">@pedromopi</p>
                     <p class="role" data-key="role"></p>
                 </div>
                 <p class="description" data-key="desc">
@@ -338,7 +356,7 @@
             <h2 class="section-title" data-key="projectsTitle"></h2>
             
             <div class="grid">
-                <a class="card" href="https://github.com/pedromopi" target="_blank" rel="noopener noreferrer">
+                <a class="card" href="https://pedro-public-repo.s3.us-east-2.amazonaws.com/aurora.html" target="_blank" rel="noopener noreferrer">
                     <h3>Aurora Developers</h3>
                     <p data-key="p1Desc"></p>
                     <div class="tech-stack">
@@ -348,7 +366,7 @@
                     </div>
                 </a>
 
-                <a class="card" href="https://github.com/pedromopi" target="_blank" rel="noopener noreferrer">
+                <a class="card" href="https://github.com/pedromopi/iCloudOffloader" target="_blank" rel="noopener noreferrer">
                     <h3>iCloud Offloader</h3>
                     <p data-key="p2Desc"></p>
                     <div class="tech-stack">
