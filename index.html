@@ -206,18 +206,33 @@
         }
 
         .card {
+            display: block;
             background: var(--card-bg);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 16px;
             padding: 2rem;
             backdrop-filter: blur(10px);
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
         }
 
-        .card:hover {
+        .card:hover,
+        .card:focus-visible {
             transform: translateY(-5px);
             border-color: var(--primary);
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .card:hover h3,
+        .card:focus-visible h3 {
+            color: var(--primary);
+        }
+
+        .card:focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: 6px;
         }
 
         .card h3 {
@@ -323,7 +338,7 @@
             <h2 class="section-title" data-key="projectsTitle"></h2>
             
             <div class="grid">
-                <div class="card">
+                <a class="card" href="https://github.com/pedromopi" target="_blank" rel="noopener noreferrer">
                     <h3>Aurora Developers</h3>
                     <p data-key="p1Desc"></p>
                     <div class="tech-stack">
@@ -331,17 +346,17 @@
                         <span class="tag">App Store Connect API</span>
                         <span class="tag">MongoDB</span>
                     </div>
-                </div>
+                </a>
 
-                <div class="card">
+                <a class="card" href="https://github.com/pedromopi" target="_blank" rel="noopener noreferrer">
                     <h3>iCloud Offloader</h3>
                     <p data-key="p2Desc"></p>
                     <div class="tech-stack">
                         <span class="tag">Swift</span>
                     </div>
-                </div>
+                </a>
 
-                <div class="card">
+                <a class="card" href="https://github.com/pedromopi" target="_blank" rel="noopener noreferrer">
                     <h3>iOS Instagram Hooks</h3>
                     <p data-key="p3Desc"></p>
                     <div class="tech-stack">
@@ -349,7 +364,7 @@
                         <span class="tag">Reverse engineering</span>
                         <span class="tag">Dynamic hooking</span>
                     </div>
-                </div>
+                </a>
             </div>
         </section>
 
