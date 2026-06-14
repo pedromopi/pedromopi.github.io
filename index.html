@@ -264,6 +264,38 @@
             margin-bottom: 1rem;
         }
 
+        .app-card h3 {
+            margin-bottom: 0.75rem;
+        }
+
+        .app-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .app-icon-placeholder {
+            width: 72px;
+            height: 72px;
+            border-radius: 18px;
+            flex: 0 0 72px;
+            display: grid;
+            place-items: center;
+            background: linear-gradient(135deg, rgba(210, 111, 69, 0.22), rgba(240, 199, 164, 0.14));
+            border: 1px solid rgba(210, 111, 69, 0.35);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+        }
+
+        .app-icon-placeholder::before {
+            content: '';
+            width: 28px;
+            height: 28px;
+            border-radius: 8px;
+            border: 2px solid var(--primary);
+            opacity: 0.8;
+        }
+
         .card p {
             color: var(--text-secondary);
             font-size: 0.95rem;
@@ -359,6 +391,26 @@
         </section>
 
         <section class="projects-section">
+            <h2 class="section-title" data-key="appsTitle"></h2>
+            <p class="section-intro" data-key="appsIntro"></p>
+
+            <div class="grid">
+                <a class="card app-card" href="https://github.com/pedromopi/hide-photos-by-date" target="_blank" rel="noopener noreferrer">
+                    <div class="app-header">
+                        <div class="app-icon-placeholder" aria-hidden="true"></div>
+                        <h3>Hide Photos by Date</h3>
+                    </div>
+                    <p data-key="app1Desc"></p>
+                    <div class="tech-stack">
+                        <span class="tag">iOS</span>
+                        <span class="tag">Fotos</span>
+                        <span class="tag">Privacidade</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <section class="projects-section">
             <h2 class="section-title" data-key="projectsTitle"></h2>
             
             <div class="grid">
@@ -392,24 +444,6 @@
             </div>
         </section>
 
-        <section class="projects-section">
-            <h2 class="section-title" data-key="appsTitle"></h2>
-            <p class="section-intro" data-key="appsIntro"></p>
-
-            <div class="grid">
-                <a class="card" href="https://github.com/pedromopi/hide-photos-by-date" target="_blank" rel="noopener noreferrer">
-                    <h3>Hide Photos by Date</h3>
-                    <p data-key="app1Desc"></p>
-                    <div class="tech-stack">
-                        <span class="tag">iOS</span>
-                        <span class="tag">Fotos</span>
-                        <span class="tag">Privacidade</span>
-                    </div>
-                </a>
-
-            </div>
-        </section>
-
         <footer>
             <p>&copy; <span id="year"></span> pedromopi.</p>
         </footer>
@@ -430,7 +464,7 @@
                 p1Desc: "Uma plataforma em nuvem para cadastro de usuários, assinatura e distribuição de testes de aplicativos iOS.",
                 p2Desc: "Um app para macOS que ajuda você a impedir que o iCloud Drive preencha silenciosamente o seu disco local.",
                 p3Desc: "Modificações para o app do Instagram no iOS realizadas por meio de hooks em tempo de execução, incluindo a possibilidade de baixar conteúdos, remover anúncios e mais.",
-                appsTitle: "Apps",
+                appsTitle: "iOS Apps",
                 appsIntro: "Projetos de aplicativos próprios, utilitários e experimentos que transformam problemas práticos em interfaces simples.",
                 app1Desc: "App para iOS focado em ocultar fotos a partir de uma data escolhida, ajudando a organizar e proteger imagens pessoais com mais controle."
             },
@@ -446,7 +480,7 @@
                 p1Desc: "A cloud platform for user enrollment, signing and distribution of iOS app tests.",
                 p2Desc: "A macOS app that helps you stop iCloud Drive from silently filling up your local disk.",
                 p3Desc: "Modifications for Instagram's iOS app performed via on-the-fly hooks, including the ability to download content, remove ads, and more.",
-                appsTitle: "Apps",
+                appsTitle: "iOS Apps",
                 appsIntro: "Personal app projects, utilities, and experiments that turn practical problems into simple interfaces.",
                 app1Desc: "An iOS app focused on hiding photos from a selected date, helping organize and protect personal images with more control."
             }
