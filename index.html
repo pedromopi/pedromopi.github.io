@@ -283,6 +283,13 @@
             margin-bottom: 1.25rem;
         }
 
+        .app-identity {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            min-width: 0;
+        }
+
         .app-icon {
             width: 72px;
             height: 72px;
@@ -302,7 +309,8 @@
             display: flex;
             flex-wrap: wrap;
             gap: 0.75rem;
-            margin-bottom: 1.5rem;
+            margin-left: auto;
+            justify-content: flex-end;
         }
 
         .app-action {
@@ -377,6 +385,16 @@
             .description {
                 margin: 0 auto;
             }
+
+            .app-header {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .app-actions {
+                margin-left: 0;
+                justify-content: flex-start;
+            }
         }
 
         @keyframes fadeIn {
@@ -432,14 +450,16 @@
             <div class="grid">
                 <div class="card app-card static-card">
                     <div class="app-header">
-                        <img class="app-icon" src="img/hide-photos-by-date-icon.png?v=d533d44" alt="Hide Photos by Date app icon">
-                        <h3>Hide Photos by Date</h3>
+                        <div class="app-identity">
+                            <img class="app-icon" src="img/hide-photos-by-date-icon.png?v=d533d44" alt="Hide Photos by Date app icon">
+                            <h3>Hide Photos by Date</h3>
+                        </div>
+                        <div class="app-actions">
+                            <a class="app-action" href="https://github.com/pedromopi/hide-photos-by-date" target="_blank" rel="noopener noreferrer" data-key="codeAction"></a>
+                            <span class="app-action is-disabled" aria-disabled="true" data-key="storeAction"></span>
+                        </div>
                     </div>
                     <p data-key="app1Desc"></p>
-                    <div class="app-actions">
-                        <a class="app-action" href="https://github.com/pedromopi/hide-photos-by-date" target="_blank" rel="noopener noreferrer" data-key="codeAction"></a>
-                        <span class="app-action is-disabled" aria-disabled="true" data-key="storeAction"></span>
-                    </div>
                     <div class="tech-stack">
                         <span class="tag">iOS</span>
                         <span class="tag">Fotos</span>
