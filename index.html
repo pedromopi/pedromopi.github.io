@@ -285,26 +285,6 @@
             font-weight: 600;
         }
 
-        .card-link {
-            display: inline-block;
-            color: var(--primary);
-            font-weight: 600;
-            font-size: 0.9rem;
-            text-decoration: none;
-        }
-
-        .card-link:hover,
-        .card-link:focus-visible {
-            text-decoration: underline;
-        }
-
-        .card-actions {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin-bottom: 1.5rem;
-        }
-
         /* Footer */
         footer {
             margin-top: 5rem;
@@ -417,19 +397,25 @@
             <p class="section-intro" data-key="appsIntro"></p>
 
             <div class="grid">
-                <div class="card">
+                <a class="card" href="https://github.com/pedromopi/hide-photos-by-date" target="_blank" rel="noopener noreferrer">
                     <h3>Hide Photos by Date</h3>
                     <p data-key="app1Desc"></p>
-                    <div class="card-actions">
-                        <a class="card-link" href="https://github.com/pedromopi/hide-photos-by-date" target="_blank" rel="noopener noreferrer" data-key="sourceLink"></a>
-                        <a class="card-link" href="apps/hide-photos-by-date/privacy.html" target="_blank" rel="noopener noreferrer" data-key="privacyLink"></a>
-                    </div>
                     <div class="tech-stack">
                         <span class="tag">iOS</span>
                         <span class="tag">Fotos</span>
                         <span class="tag">Privacidade</span>
                     </div>
-                </div>
+                </a>
+
+                <a class="card" href="apps/hide-photos-by-date/privacy.html" target="_blank" rel="noopener noreferrer">
+                    <h3 data-key="privacyTitle"></h3>
+                    <p data-key="privacyDesc"></p>
+                    <div class="tech-stack">
+                        <span class="tag">Apple</span>
+                        <span class="tag">App Store</span>
+                        <span class="tag">Privacy</span>
+                    </div>
+                </a>
             </div>
         </section>
 
@@ -456,8 +442,8 @@
                 appsTitle: "Apps",
                 appsIntro: "Projetos de aplicativos próprios, utilitários e experimentos que transformam problemas práticos em interfaces simples.",
                 app1Desc: "App para iOS focado em ocultar fotos a partir de uma data escolhida, ajudando a organizar e proteger imagens pessoais com mais controle.",
-                sourceLink: "Codigo no GitHub",
-                privacyLink: "Politica de privacidade"
+                privacyTitle: "Politica de privacidade",
+                privacyDesc: "Pagina publica da politica de privacidade do Hide Photos by Date para revisao e exigencias da App Store."
             },
             en: {
                 btn: "PT",
@@ -474,8 +460,8 @@
                 appsTitle: "Apps",
                 appsIntro: "Personal app projects, utilities, and experiments that turn practical problems into simple interfaces.",
                 app1Desc: "An iOS app focused on hiding photos from a selected date, helping organize and protect personal images with more control.",
-                sourceLink: "Source on GitHub",
-                privacyLink: "Privacy Policy"
+                privacyTitle: "Privacy Policy",
+                privacyDesc: "Public privacy policy page for Hide Photos by Date for App Store review and requirements."
             }
         };
 
