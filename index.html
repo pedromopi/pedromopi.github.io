@@ -320,17 +320,21 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            min-height: 38px;
-            padding: 0.45rem 0.95rem;
+            width: 42px;
+            height: 42px;
             text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 600;
         }
 
         .app-action:hover,
         .app-action:focus-visible {
             background: var(--primary);
             color: var(--bg-color);
+        }
+
+        .app-action svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
         }
 
         .app-action.is-disabled {
@@ -455,8 +459,16 @@
                             <h3>Hide Photos by Date</h3>
                         </div>
                         <div class="app-actions">
-                            <a class="app-action" href="https://github.com/pedromopi/hide-photos-by-date" target="_blank" rel="noopener noreferrer" data-key="codeAction"></a>
-                            <span class="app-action is-disabled" aria-disabled="true" data-key="storeAction"></span>
+                            <a class="app-action" href="https://github.com/pedromopi/hide-photos-by-date" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M12 2C6.48 2 2 6.58 2 12.24c0 4.52 2.87 8.35 6.84 9.71.5.09.68-.22.68-.49 0-.24-.01-.88-.01-1.73-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.49-1.11-1.49-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.9 1.56 2.36 1.11 2.93.85.09-.67.35-1.11.63-1.37-2.22-.26-4.55-1.14-4.55-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05A9.33 9.33 0 0 1 12 6.98c.85 0 1.7.12 2.5.34 1.9-1.33 2.74-1.05 2.74-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.79-4.57 5.05.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.8 0 .27.18.59.69.49A10.1 10.1 0 0 0 22 12.24C22 6.58 17.52 2 12 2Z"/>
+                                </svg>
+                            </a>
+                            <span class="app-action is-disabled" aria-label="App Store" aria-disabled="true">
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M16.73 2.75c.06 1.24-.43 2.34-1.12 3.13-.75.86-1.98 1.52-3.17 1.43-.08-1.18.47-2.4 1.14-3.16.77-.88 2.1-1.55 3.15-1.4Zm3.74 15.88c-.56 1.23-.83 1.78-1.55 2.87-1.01 1.53-2.43 3.43-4.2 3.45-1.57.01-1.98-1-4.11-.99-2.13.01-2.58 1-4.15.99-1.77-.02-3.12-1.73-4.14-3.26C-.51 17.42-.8 12.41 1.06 9.74c1.31-1.89 3.39-3 5.33-3.03 1.98-.04 3.85 1.05 4.11 1.05.25 0 2.24-1.31 4.75-1.12 1.05.04 4 .42 5.9 3.19-5.17 2.84-4.33 9.14-.68 8.8Z" transform="scale(.82) translate(2 0)"/>
+                                </svg>
+                            </span>
                         </div>
                     </div>
                     <p data-key="app1Desc"></p>
@@ -525,9 +537,7 @@
                 p3Desc: "Modificações para o app do Instagram no iOS realizadas por meio de hooks em tempo de execução, incluindo a possibilidade de baixar conteúdos, remover anúncios e mais.",
                 appsTitle: "iOS Apps",
                 appsIntro: "Projetos de aplicativos próprios, utilitários e experimentos que transformam problemas práticos em interfaces simples.",
-                app1Desc: "App para iOS focado em ocultar fotos a partir de uma data escolhida, ajudando a organizar e proteger imagens pessoais com mais controle.",
-                codeAction: "Codigo",
-                storeAction: "App Store"
+                app1Desc: "App para iOS focado em ocultar fotos a partir de uma data escolhida, ajudando a organizar e proteger imagens pessoais com mais controle."
             },
             en: {
                 btn: "PT",
@@ -543,9 +553,7 @@
                 p3Desc: "Modifications for Instagram's iOS app performed via on-the-fly hooks, including the ability to download content, remove ads, and more.",
                 appsTitle: "iOS Apps",
                 appsIntro: "Personal app projects, utilities, and experiments that turn practical problems into simple interfaces.",
-                app1Desc: "An iOS app focused on hiding photos from a selected date, helping organize and protect personal images with more control.",
-                codeAction: "Code",
-                storeAction: "App Store"
+                app1Desc: "An iOS app focused on hiding photos from a selected date, helping organize and protect personal images with more control."
             }
         };
 
