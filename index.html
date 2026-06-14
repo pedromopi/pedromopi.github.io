@@ -217,6 +217,12 @@
             border-radius: 2px;
         }
 
+        .section-intro {
+            color: var(--text-secondary);
+            max-width: 650px;
+            margin: -1rem 0 2rem;
+        }
+
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -386,6 +392,23 @@
             </div>
         </section>
 
+        <section class="projects-section">
+            <h2 class="section-title" data-key="appsTitle"></h2>
+            <p class="section-intro" data-key="appsIntro"></p>
+
+            <div class="grid">
+                <a class="card" href="https://github.com/pedromopi/hide-photos-by-date" target="_blank" rel="noopener noreferrer">
+                    <h3>Hide Photos by Date</h3>
+                    <p data-key="app1Desc"></p>
+                    <div class="tech-stack">
+                        <span class="tag">iOS</span>
+                        <span class="tag">Fotos</span>
+                        <span class="tag">Privacidade</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
         <footer>
             <p>&copy; <span id="year"></span> pedromopi.</p>
         </footer>
@@ -405,7 +428,10 @@
                 projectsTitle: "Trabalhos publicos",
                 p1Desc: "Uma plataforma em nuvem para cadastro de usuários, assinatura e distribuição de testes de aplicativos iOS.",
                 p2Desc: "Um app para macOS que ajuda você a impedir que o iCloud Drive preencha silenciosamente o seu disco local.",
-                p3Desc: "Modificações para o app do Instagram no iOS realizadas por meio de hooks em tempo de execução, incluindo a possibilidade de baixar conteúdos, remover anúncios e mais."
+                p3Desc: "Modificações para o app do Instagram no iOS realizadas por meio de hooks em tempo de execução, incluindo a possibilidade de baixar conteúdos, remover anúncios e mais.",
+                appsTitle: "Apps",
+                appsIntro: "Projetos de aplicativos próprios, utilitários e experimentos que transformam problemas práticos em interfaces simples.",
+                app1Desc: "App para iOS focado em ocultar fotos a partir de uma data escolhida, ajudando a organizar e proteger imagens pessoais com mais controle."
             },
             en: {
                 btn: "PT",
@@ -418,7 +444,10 @@
                 projectsTitle: "Public Works",
                 p1Desc: "A cloud platform for user enrollment, signing and distribution of iOS app tests.",
                 p2Desc: "A macOS app that helps you stop iCloud Drive from silently filling up your local disk.",
-                p3Desc: "Modifications for Instagram's iOS app performed via on-the-fly hooks, including the ability to download content, remove ads, and more."
+                p3Desc: "Modifications for Instagram's iOS app performed via on-the-fly hooks, including the ability to download content, remove ads, and more.",
+                appsTitle: "Apps",
+                appsIntro: "Personal app projects, utilities, and experiments that turn practical problems into simple interfaces.",
+                app1Desc: "An iOS app focused on hiding photos from a selected date, helping organize and protect personal images with more control."
             }
         };
 
