@@ -275,25 +275,13 @@
             margin-bottom: 1.25rem;
         }
 
-        .app-icon-placeholder {
+        .app-icon {
             width: 72px;
             height: 72px;
             border-radius: 18px;
             flex: 0 0 72px;
-            display: grid;
-            place-items: center;
-            background: linear-gradient(135deg, rgba(210, 111, 69, 0.22), rgba(240, 199, 164, 0.14));
-            border: 1px solid rgba(210, 111, 69, 0.35);
-            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
-        }
-
-        .app-icon-placeholder::before {
-            content: '';
-            width: 28px;
-            height: 28px;
-            border-radius: 8px;
-            border: 2px solid var(--primary);
-            opacity: 0.8;
+            object-fit: cover;
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.24);
         }
 
         .card p {
@@ -397,7 +385,7 @@
             <div class="grid">
                 <a class="card app-card" href="https://github.com/pedromopi/hide-photos-by-date" target="_blank" rel="noopener noreferrer">
                     <div class="app-header">
-                        <div class="app-icon-placeholder" aria-hidden="true"></div>
+                        <img class="app-icon" src="img/hide-photos-by-date-icon.png" alt="Hide Photos by Date app icon">
                         <h3>Hide Photos by Date</h3>
                     </div>
                     <p data-key="app1Desc"></p>
