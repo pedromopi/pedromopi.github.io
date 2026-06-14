@@ -242,11 +242,19 @@
             cursor: pointer;
         }
 
+        .card.static-card {
+            cursor: default;
+        }
+
         .card:hover,
         .card:focus-visible {
             transform: translateY(-5px);
             border-color: var(--primary);
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .static-card:hover {
+            transform: none;
         }
 
         .card:hover h3,
@@ -288,6 +296,45 @@
             color: var(--text-secondary);
             font-size: 0.95rem;
             margin-bottom: 1.5rem;
+        }
+
+        .app-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .app-action {
+            border: 1px solid var(--primary);
+            border-radius: 50px;
+            color: var(--primary);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 38px;
+            padding: 0.45rem 0.95rem;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .app-action:hover,
+        .app-action:focus-visible {
+            background: var(--primary);
+            color: var(--bg-color);
+        }
+
+        .app-action.is-disabled {
+            border-color: rgba(200, 182, 168, 0.35);
+            color: rgba(200, 182, 168, 0.65);
+            cursor: not-allowed;
+        }
+
+        .app-action.is-disabled:hover,
+        .app-action.is-disabled:focus-visible {
+            background: transparent;
+            color: rgba(200, 182, 168, 0.65);
         }
 
         .tech-stack {
@@ -383,18 +430,22 @@
             <p class="section-intro" data-key="appsIntro"></p>
 
             <div class="grid">
-                <a class="card app-card" href="https://github.com/pedromopi/hide-photos-by-date" target="_blank" rel="noopener noreferrer">
+                <div class="card app-card static-card">
                     <div class="app-header">
                         <img class="app-icon" src="img/hide-photos-by-date-icon.png?v=d533d44" alt="Hide Photos by Date app icon">
                         <h3>Hide Photos by Date</h3>
                     </div>
                     <p data-key="app1Desc"></p>
+                    <div class="app-actions">
+                        <a class="app-action" href="https://github.com/pedromopi/hide-photos-by-date" target="_blank" rel="noopener noreferrer" data-key="codeAction"></a>
+                        <span class="app-action is-disabled" aria-disabled="true" data-key="storeAction"></span>
+                    </div>
                     <div class="tech-stack">
                         <span class="tag">iOS</span>
                         <span class="tag">Fotos</span>
                         <span class="tag">Privacidade</span>
                     </div>
-                </a>
+                </div>
             </div>
         </section>
 
@@ -454,7 +505,9 @@
                 p3Desc: "Modificações para o app do Instagram no iOS realizadas por meio de hooks em tempo de execução, incluindo a possibilidade de baixar conteúdos, remover anúncios e mais.",
                 appsTitle: "iOS Apps",
                 appsIntro: "Projetos de aplicativos próprios, utilitários e experimentos que transformam problemas práticos em interfaces simples.",
-                app1Desc: "App para iOS focado em ocultar fotos a partir de uma data escolhida, ajudando a organizar e proteger imagens pessoais com mais controle."
+                app1Desc: "App para iOS focado em ocultar fotos a partir de uma data escolhida, ajudando a organizar e proteger imagens pessoais com mais controle.",
+                codeAction: "Codigo",
+                storeAction: "App Store"
             },
             en: {
                 btn: "PT",
@@ -470,7 +523,9 @@
                 p3Desc: "Modifications for Instagram's iOS app performed via on-the-fly hooks, including the ability to download content, remove ads, and more.",
                 appsTitle: "iOS Apps",
                 appsIntro: "Personal app projects, utilities, and experiments that turn practical problems into simple interfaces.",
-                app1Desc: "An iOS app focused on hiding photos from a selected date, helping organize and protect personal images with more control."
+                app1Desc: "An iOS app focused on hiding photos from a selected date, helping organize and protect personal images with more control.",
+                codeAction: "Code",
+                storeAction: "App Store"
             }
         };
 
