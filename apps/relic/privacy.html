@@ -17,7 +17,8 @@ h1 { margin:6px 0 4px; font-size:clamp(2.2rem,7vw,3.7rem); line-height:1.08; }
 .updated,.legal-note { color:var(--muted); }
 .updated { margin:0; }
 .language-links { margin-top:22px; }
-.language-links a { display:inline-block; margin-right:8px; padding:7px 12px; border:1px solid var(--border); border-radius:999px; color:var(--accent); text-decoration:none; font-weight:600; }
+.language-links button { display:inline-block; margin-right:8px; padding:7px 12px; border:1px solid var(--border); border-radius:999px; background:transparent; color:var(--accent); font:inherit; cursor:pointer; font-weight:600; }
+.language-links button[aria-pressed="true"] { background:var(--accent); color:var(--bg); border-color:var(--accent); }
 article { margin-top:24px; padding:clamp(22px,5vw,42px); background:var(--card); border:1px solid var(--border); border-radius:20px; }
 h2 { margin:1.7em 0 .35em; font-size:1.35rem; }
 h2:first-of-type { margin-top:0; }
@@ -26,6 +27,7 @@ li+li { margin-top:.35em; }
 a { color:var(--accent); }
 .divider { margin:52px 0; border:0; border-top:1px solid var(--border); }
 .legal-note { margin-top:42px; font-size:.92rem; }
+[hidden] { display:none !important; }
 </style>
 </head>
 <body>
@@ -34,10 +36,14 @@ a { color:var(--accent); }
 <div class="eyebrow">Relic</div>
 <h1>Privacy Policy</h1>
 <p class="updated">Last updated: September 11, 2026</p>
-<nav class="language-links" aria-label="Language"><a href="#english">English</a><a href="#portugues" lang="pt-BR">Português</a></nav>
+<nav class="language-links" aria-label="Language">
+<button type="button" data-language="en" aria-pressed="true">English</button>
+<button type="button" data-language="pt-BR" aria-pressed="false" lang="pt-BR">Português</button>
+</nav>
 </header>
 
-<article id="english">
+<article>
+<section id="english" data-content-language="en">
 <h2>Overview</h2>
 <p>Relic helps you organize and preserve your personal photo and video library using a storage provider you choose. Your media is transferred directly between the app and your Google Drive or Apple iCloud account. The developer does not operate a server that receives or stores your media.</p>
 
@@ -76,10 +82,9 @@ a { color:var(--accent); }
 
 <h2>Contact</h2>
 <p><strong>Pedro Borges</strong><br><a href="mailto:pedromopi@hotmail.com">pedromopi@hotmail.com</a></p>
+</section>
 
-<hr class="divider">
-
-<section id="portugues" lang="pt-BR">
+<section id="portugues" data-content-language="pt-BR" lang="pt-BR" hidden>
 <div class="eyebrow">Relic</div>
 <h1>Política de Privacidade</h1>
 <p class="updated">Última atualização: 11 de setembro de 2026</p>
@@ -124,8 +129,34 @@ a { color:var(--accent); }
 <p><strong>Pedro Borges</strong><br><a href="mailto:pedromopi@hotmail.com">pedromopi@hotmail.com</a></p>
 </section>
 
-<p class="legal-note">This policy applies to the Relic application for Apple platforms.</p>
 </article>
 </main>
+<script>
+(() => {
+    const buttons = Array.from(document.querySelectorAll('[data-language]'));
+    const sections = Array.from(document.querySelectorAll('[data-content-language]'));
+    const supportedLanguages = ['en', 'pt-BR'];
+
+    function selectLanguage(language, remember = true) {
+        const selected = supportedLanguages.includes(language) ? language : 'en';
+        document.documentElement.lang = selected;
+        sections.forEach(section => {
+            section.hidden = section.dataset.contentLanguage !== selected;
+        });
+        buttons.forEach(button => {
+            button.setAttribute('aria-pressed', String(button.dataset.language === selected));
+        });
+        if (remember) localStorage.setItem('relic-privacy-language', selected);
+    }
+
+    buttons.forEach(button => {
+        button.addEventListener('click', () => selectLanguage(button.dataset.language));
+    });
+
+    const savedLanguage = localStorage.getItem('relic-privacy-language');
+    const browserLanguage = navigator.language.toLowerCase().startsWith('pt') ? 'pt-BR' : 'en';
+    selectLanguage(savedLanguage || browserLanguage, false);
+})();
+</script>
 </body>
 </html>
