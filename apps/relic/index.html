@@ -1,90 +1,16 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Relic organizes and preserves your personal photo and video library in Google Drive or iCloud.">
-<title>Relic — Your memories, under your control</title>
-<style>
-:root { color-scheme:light dark; --bg:#17110f; --card:rgba(255,255,255,.06); --text:#f5ece6; --muted:#c8b6aa; --accent:#e1845a; --accent2:#f0c7a4; --border:rgba(255,255,255,.12); }
-* { box-sizing:border-box; }
-body { margin:0; min-height:100vh; background:radial-gradient(circle at 15% 12%,rgba(225,132,90,.18),transparent 30%),radial-gradient(circle at 82% 78%,rgba(240,199,164,.12),transparent 28%),var(--bg); color:var(--text); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; line-height:1.6; }
-.page { width:min(100% - 40px,960px); margin:0 auto; padding:34px 0 60px; }
-nav { display:flex; align-items:center; justify-content:space-between; gap:20px; }
-.brand { color:var(--text); font-size:1.15rem; font-weight:750; letter-spacing:.04em; text-decoration:none; }
-.languages button { margin-left:6px; padding:7px 12px; border:1px solid var(--border); border-radius:999px; background:transparent; color:var(--accent2); font:inherit; font-weight:650; cursor:pointer; }
-.languages button[aria-pressed="true"] { background:var(--accent); border-color:var(--accent); color:var(--bg); }
-main { padding:clamp(72px,14vw,150px) 0 100px; }
-.eyebrow { color:var(--accent); font-size:.82rem; font-weight:750; letter-spacing:.13em; text-transform:uppercase; }
-h1 { max-width:780px; margin:12px 0 22px; font-size:clamp(3rem,9vw,6.5rem); line-height:.98; letter-spacing:-.055em; }
-.lead { max-width:670px; margin:0; color:var(--muted); font-size:clamp(1.08rem,2.5vw,1.35rem); }
-.features { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:54px; }
-.feature { padding:24px; background:var(--card); border:1px solid var(--border); border-radius:18px; }
-.feature h2 { margin:0 0 7px; font-size:1.08rem; }
-.feature p { margin:0; color:var(--muted); font-size:.96rem; }
-footer { display:flex; flex-wrap:wrap; justify-content:space-between; gap:18px; padding-top:24px; border-top:1px solid var(--border); color:var(--muted); }
-footer p { margin:0; }
-footer a { color:var(--accent2); margin-left:18px; }
-[hidden] { display:none !important; }
-@media (max-width:700px) { .features { grid-template-columns:1fr; } footer a { display:inline-block; margin:8px 16px 0 0; } }
-</style>
+  <meta charset="utf-8">
+  <meta name="robots" content="noindex">
+  <meta http-equiv="refresh" content="0; url=https://pedromopi.com/apps/relic/index.html">
+  <link rel="canonical" href="https://pedromopi.com/apps/relic/index.html">
+  <title>Redirecting…</title>
+  <script>
+    window.location.replace('https://pedromopi.com' + window.location.pathname + window.location.search + window.location.hash);
+  </script>
 </head>
 <body>
-<div class="page">
-<nav>
-<a class="brand" href="./">RELIC</a>
-<div class="languages" aria-label="Language">
-<button type="button" data-language="en" aria-pressed="true">English</button>
-<button type="button" data-language="pt-BR" aria-pressed="false" lang="pt-BR">Português</button>
-</div>
-</nav>
-
-<main>
-<section data-content-language="en">
-<div class="eyebrow">Your personal media library</div>
-<h1>Your memories, under your control.</h1>
-<p class="lead">Relic helps you import, organize, preserve, and restore your photos and videos using the cloud storage you already trust: your own Google Drive or Apple iCloud account.</p>
-<div class="features">
-<div class="feature"><h2>Your storage</h2><p>Your media stays in the Google Drive or iCloud account you choose.</p></div>
-<div class="feature"><h2>Metadata preserved</h2><p>Keep dates, dimensions, favorites, location information, and original media data.</p></div>
-<div class="feature"><h2>Built for privacy</h2><p>No advertising, cross-app tracking, or developer-operated media servers.</p></div>
-</div>
-</section>
-
-<section data-content-language="pt-BR" lang="pt-BR" hidden>
-<div class="eyebrow">Sua biblioteca pessoal de mídias</div>
-<h1>Suas memórias, sob seu controle.</h1>
-<p class="lead">O Relic ajuda você a importar, organizar, preservar e restaurar suas fotos e vídeos usando o armazenamento em nuvem que você já confia: sua própria conta do Google Drive ou Apple iCloud.</p>
-<div class="features">
-<div class="feature"><h2>Seu armazenamento</h2><p>Suas mídias permanecem na conta do Google Drive ou iCloud escolhida por você.</p></div>
-<div class="feature"><h2>Metadados preservados</h2><p>Mantenha datas, dimensões, favoritos, localização e os dados originais das mídias.</p></div>
-<div class="feature"><h2>Feito para privacidade</h2><p>Sem publicidade, rastreamento entre aplicativos ou servidores de mídia operados pelo desenvolvedor.</p></div>
-</div>
-</section>
-</main>
-
-<footer>
-<p>© 2026 Pedro Borges</p>
-<div><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a><a href="mailto:pedromopi@hotmail.com">Contact</a></div>
-</footer>
-</div>
-<script>
-(() => {
-    const buttons = Array.from(document.querySelectorAll('[data-language]'));
-    const sections = Array.from(document.querySelectorAll('[data-content-language]'));
-    const supported = ['en', 'pt-BR'];
-    function selectLanguage(language, remember = true) {
-        const selected = supported.includes(language) ? language : 'en';
-        document.documentElement.lang = selected;
-        sections.forEach(section => { section.hidden = section.dataset.contentLanguage !== selected; });
-        buttons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.language === selected)));
-        if (remember) localStorage.setItem('relic-site-language', selected);
-    }
-    buttons.forEach(button => button.addEventListener('click', () => selectLanguage(button.dataset.language)));
-    const saved = localStorage.getItem('relic-site-language');
-    const browser = navigator.language.toLowerCase().startsWith('pt') ? 'pt-BR' : 'en';
-    selectLanguage(saved || browser, false);
-})();
-</script>
+  <p>Redirecting to <a href="https://pedromopi.com/apps/relic/index.html">https://pedromopi.com/apps/relic/index.html</a>…</p>
 </body>
 </html>
